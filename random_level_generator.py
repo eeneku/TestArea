@@ -3,17 +3,32 @@ __author__ = 'eeneku'
 
 import random
 import pyglet
+import math
+
+from pyglet.gl import *
 
 key_state = pyglet.window.key.KeyStateHandler()
 
-SEED = 'oskari'
+SEED = 'mika'
 
 window = pyglet.window.Window(1280, 720)
 red_image = pyglet.image.load("red.png")
 white_image = pyglet.image.load("white.png")
 tile_set = pyglet.image.load("road_tiles2.png")
+hex_test = pyglet.image.load("Hex Tiles/Fire.png")
+hex_test.anchor_x = 55
+hex_test.anchor_y = 64
 
 window.push_handlers(key_state)
+
+hex_width = 110
+hex_height = 128
+
+print(128*0.75)
+print(int(math.sqrt(3)/2*128))
+
+hex_spacing_y = 96
+hex_spacing_x = 110
 
 N = 1
 S = 10
@@ -34,7 +49,6 @@ directions = {
     (-1, -1): SW,
     (1, -1): SE
 }
-
 
 tile_size = 32
 
@@ -218,8 +232,16 @@ def on_draw():
     pyglet.gl.glPopMatrix()
     pyglet.gl.glLoadIdentity()
 
+    x = 160
+    y = 160
+
+
+
     fps.draw()
 
 pyglet.clock.schedule(update)
+
+glEnable(GL_BLEND)
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 
 pyglet.app.run()

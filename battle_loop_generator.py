@@ -15,8 +15,8 @@ unit_rules = [[0, -1, 1, -1, 1],
               [1, -1, 1, 0, -1],
               [-1, 1, -1, 1, 0]]
 
-player_units = [ROCK, ROCK, LIZARD, SPOCK, SCISSORS]
-enemy_units = [ROCK, SPOCK, SCISSORS, PAPER, SPOCK, LIZARD]
+player_units = [ROCK, PAPER, LIZARD, SPOCK, LIZARD]
+enemy_units = [4, 2, 0, 1, 4, 3, 1, 2]
 
 # Press A for AWESOME!
 player_permutations = itertools.permutations(player_units, len(player_units))
